@@ -25,79 +25,88 @@
             background-image: 
                 linear-gradient(135deg, #FFE3E3 0%, #F0E3FF 50%, #E3F2FF 100%);
         }
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
     </style>
 </head>
-<body class="bg-vibrant-pastel text-stone-700 min-h-screen antialiased flex justify-center items-center p-0 sm:p-4 overflow-x-hidden" x-data="{ isOpened: false }">
+<body class="bg-vibrant-pastel text-stone-700 min-h-screen antialiased flex justify-center items-start sm:items-center p-0 sm:p-4 overflow-x-hidden" x-data="{ isOpened: false }">
 
-    <!-- COVER SCREEN -->
+    <!-- COVER SCREEN (Mobile Responsive) -->
     <div x-show="!isOpened" 
          x-transition:leave="transition ease-in duration-700 transform"
          x-transition:leave-start="opacity-100 translate-y-0"
          x-transition:leave-end="opacity-0 -translate-y-full"
          class="fixed inset-0 z-50 bg-gradient-to-br from-[#FFE3E3] via-[#F0E3FF] to-[#E3F2FF] flex flex-col justify-center items-center text-center px-6 overflow-hidden">
         
-        <!-- Animated Floating Balloons Decor -->
-        <div class="absolute -top-10 -left-10 w-40 h-40 bg-[#FFB5B5] rounded-full opacity-60 filter blur-lg animate-pulse"></div>
-        <div class="absolute -bottom-20 -right-10 w-52 h-52 bg-[#C4E0E5] rounded-full opacity-60 filter blur-lg animate-pulse"></div>
+        <!-- Background Ornaments -->
+        <div class="absolute -top-10 -left-10 w-32 h-32 sm:w-40 sm:h-40 bg-[#FFB5B5] rounded-full opacity-60 filter blur-lg animate-pulse"></div>
+        <div class="absolute -bottom-20 -right-10 w-40 h-40 sm:w-52 sm:h-52 bg-[#C4E0E5] rounded-full opacity-60 filter blur-lg animate-pulse"></div>
         
-        <!-- Decorative Balloon Shapes -->
-        <div class="absolute top-20 right-16 w-12 h-16 bg-[#FFC6FF] rounded-full opacity-80 shadow-inner before:content-[''] before:absolute before:bottom-[-8px] before:left-[22px] before:w-1 before:h-4 before:bg-stone-400"></div>
-        <div class="absolute bottom-24 left-12 w-10 h-14 bg-[#BDB2FF] rounded-full opacity-80 shadow-inner before:content-[''] before:absolute before:bottom-[-8px] before:left-[18px] before:w-1 before:h-4 before:bg-stone-400"></div>
+        <!-- Balloon Shapes -->
+        <div class="absolute top-16 right-8 w-10 h-14 bg-[#FFC6FF] rounded-full opacity-80 shadow-inner"></div>
+        <div class="absolute bottom-20 left-6 w-8 h-12 bg-[#BDB2FF] rounded-full opacity-80 shadow-inner"></div>
         
-        <!-- Floating Confetti Stars -->
-        <div class="absolute top-1/4 left-1/4 text-[#FFADAD] text-2xl animate-bounce">✦</div>
-        <div class="absolute top-1/3 right-1/4 text-[#CAFFBF] text-xl animate-ping">✦</div>
-        <div class="absolute bottom-1/3 left-1/5 text-[#FDFFB6] text-3xl animate-bounce">★</div>
+        <!-- Stars -->
+        <div class="absolute top-1/4 left-1/4 text-[#FFADAD] text-xl animate-bounce">✦</div>
+        <div class="absolute top-1/3 right-1/4 text-[#CAFFBF] text-lg animate-ping">✦</div>
 
-        <p class="text-xs tracking-[0.2em] uppercase text-purple-600 font-bold mb-3 bg-white/60 px-4 py-1 rounded-full">Grand Opening Invitation</p>
+        <p class="text-[10px] sm:text-xs tracking-[0.2em] uppercase text-purple-600 font-bold mb-3 bg-white/60 px-4 py-1 rounded-full">Grand Opening Invitation</p>
         
-        <h3 class="font-fun text-xl text-purple-500 font-semibold tracking-wide mb-1">Azka Fatima Zahra</h3>
-        <h1 class="font-fun text-4xl md:text-5xl font-semibold text-[#5C4B69] leading-tight mb-2">Presents</h1>
-        <h2 class="font-fun text-5xl md:text-6xl text-[#FF70A6] drop-shadow-sm mb-8">The Pastel Cafe</h2>
+        <h3 class="font-fun text-lg sm:text-xl text-purple-500 font-semibold tracking-wide mb-1">Azka Fatima Zahra</h3>
+        <h1 class="font-fun text-3xl sm:text-4xl font-semibold text-[#5C4B69] leading-tight mb-1">Presents</h1>
+        <h2 class="font-fun text-4xl sm:text-6xl text-[#FF70A6] drop-shadow-sm mb-8 px-2">The Pastel Cafe</h2>
         
-        <p class="text-sm font-medium text-stone-600 max-w-sm mb-12 leading-relaxed bg-white/40 p-3 rounded-2xl backdrop-blur-sm">
+        <p class="text-xs sm:text-sm font-medium text-stone-600 max-w-xs mb-10 leading-relaxed bg-white/40 p-3 rounded-2xl backdrop-blur-sm mx-4">
             Please come and hang out with us on our opening day!
         </p>
 
         <button @click="isOpened = true" 
-                class="bg-[#FF70A6] hover:bg-[#ff5593] text-white font-bold tracking-wide text-sm px-10 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+                class="bg-[#FF70A6] hover:bg-[#ff5593] text-white font-bold tracking-wide text-xs sm:text-sm px-8 py-3.5 sm:px-10 sm:py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
             LET'S OPEN! 🎉
         </button>
     </div>
 
 
-    <!-- MAIN CONTENT CONTAINER -->
+    <!-- MAIN CONTENT CONTAINER (Perfect for Mobile & Desktop) -->
     <main x-show="isOpened" 
           x-transition:enter="transition ease-out duration-1000 delay-300"
           x-transition:enter-start="opacity-0 scale-95"
           x-transition:enter-end="opacity-100 scale-100"
-          class="w-full max-w-md bg-white/95 border-4 border-[#FFC6FF] rounded-none sm:rounded-3xl shadow-2xl overflow-hidden min-h-screen sm:min-h-0 my-0 sm:my-8 relative">
+          class="w-full max-w-md bg-white sm:bg-white/95 border-0 sm:border-4 border-[#FFC6FF] rounded-none sm:rounded-3xl shadow-none sm:shadow-2xl overflow-y-auto min-h-screen sm:min-h-0 my-0 sm:my-8 relative no-scrollbar">
         
-        <div class="absolute top-2 left-2 text-xl">🎉</div>
-        <div class="absolute top-2 right-2 text-xl">✨</div>
+        <!-- Corner Emojis -->
+        <div class="absolute top-3 left-3 text-lg z-10">🎉</div>
+        <div class="absolute top-3 right-3 text-lg z-10">✨</div>
 
         <!-- Header -->
-        <div class="p-5 text-center border-b-2 border-dashed border-[#FFC6FF] bg-[#F0E3FF]/40">
-            <span class="font-fun text-2xl font-bold text-[#5C4B69]">The Pastel Cafe 🍰</span>
+        <div class="p-5 text-center border-b-2 border-dashed border-[#FFC6FF] bg-[#F0E3FF]/40 pt-7 sm:pt-5">
+            <span class="font-fun text-xl sm:text-2xl font-bold text-[#5C4B69]">The Pastel Cafe 🍰</span>
         </div>
 
         <!-- Invitation Intro -->
-        <section class="p-8 text-center relative">
-            <div class="absolute top-4 right-8 text-[#FFD166] text-xl animate-spin">★</div>
+        <section class="p-6 sm:p-8 text-center relative">
+            <div class="absolute top-4 right-6 text-[#FFD166] text-lg animate-spin">★</div>
             
-            <h3 class="font-fun text-3xl text-[#5C4B69] mb-4">You're Invited!</h3>
+            <h3 class="font-fun text-2xl sm:text-3xl text-[#5C4B69] mb-3">You're Invited!</h3>
             
-            <p class="text-sm text-stone-600 leading-relaxed">
+            <p class="text-xs sm:text-sm text-stone-600 leading-relaxed px-1">
                 Hi everyone! <strong>Azka</strong> here. I am so happy to invite you to the grand opening of my new cafe! Please come, bring your friends, and enjoy our free sweet coffee, iced matcha, and delicious cakes.
             </p>
             
-            <div class="inline-block mt-6 bg-[#FFADAD] text-white text-xs font-bold px-6 py-2.5 rounded-full tracking-wider uppercase shadow-sm">
+            <div class="inline-block mt-5 bg-[#FFADAD] text-white text-[10px] sm:text-xs font-bold px-5 py-2 rounded-full tracking-wider uppercase shadow-sm">
                 🎈 Special Promo: Buy 1 Get 1 Free 🎈
             </div>
         </section>
 
-        <!-- Countdown Timer -->
-        <section class="px-8 py-6 text-center bg-[#E8DFF5]/30 border-y-2 border-dashed border-[#FFC6FF]" 
+        <!-- Countdown Timer (Responsive Grid) -->
+        <section class="px-4 sm:px-8 py-5 text-center bg-[#E8DFF5]/30 border-y-2 border-dashed border-[#FFC6FF]" 
                  x-data="{
                     expiry: new Date('2026-07-25T10:00:00').getTime(),
                     days: '00', hours: '00', minutes: '00', seconds: '00',
@@ -114,78 +123,78 @@
                         }, 1000);
                     }
                  }">
-            <h4 class="text-xs uppercase tracking-widest text-purple-600 font-bold mb-4">The Party Starts In:</h4>
-            <div class="flex justify-center gap-3">
-                <div class="bg-[#FFC6FF] w-16 py-2 rounded-xl shadow-sm">
-                    <span class="block text-xl font-bold text-stone-800" x-text="days">00</span>
-                    <span class="text-[10px] text-stone-600 font-medium">Days</span>
+            <h4 class="text-[10px] sm:text-xs uppercase tracking-widest text-purple-600 font-bold mb-3">The Party Starts In:</h4>
+            <div class="flex justify-center gap-2 sm:gap-3">
+                <div class="bg-[#FFC6FF] w-14 sm:w-16 py-2 rounded-xl shadow-sm">
+                    <span class="block text-lg sm:text-xl font-bold text-stone-800" x-text="days">00</span>
+                    <span class="text-[9px] sm:text-[10px] text-stone-600 font-medium">Days</span>
                 </div>
-                <div class="bg-[#BDB2FF] w-16 py-2 rounded-xl shadow-sm">
-                    <span class="block text-xl font-bold text-stone-800" x-text="hours">00</span>
-                    <span class="text-[10px] text-stone-600 font-medium">Hours</span>
+                <div class="bg-[#BDB2FF] w-14 sm:w-16 py-2 rounded-xl shadow-sm">
+                    <span class="block text-lg sm:text-xl font-bold text-stone-800" x-text="hours">00</span>
+                    <span class="text-[9px] sm:text-[10px] text-stone-600 font-medium">Hours</span>
                 </div>
-                <div class="bg-[#FFADAD] w-16 py-2 rounded-xl shadow-sm">
-                    <span class="block text-xl font-bold text-stone-800" x-text="minutes">00</span>
-                    <span class="text-[10px] text-stone-600 font-medium">Min</span>
+                <div class="bg-[#FFADAD] w-14 sm:w-16 py-2 rounded-xl shadow-sm">
+                    <span class="block text-lg sm:text-xl font-bold text-stone-800" x-text="minutes">00</span>
+                    <span class="text-[9px] sm:text-[10px] text-stone-600 font-medium">Min</span>
                 </div>
-                <div class="bg-[#9BF6FF] w-16 py-2 rounded-xl shadow-sm">
-                    <span class="block text-xl font-bold text-stone-800" x-text="seconds">00</span>
-                    <span class="text-[10px] text-stone-600 font-medium">Sec</span>
+                <div class="bg-[#9BF6FF] w-14 sm:w-16 py-2 rounded-xl shadow-sm">
+                    <span class="block text-lg sm:text-xl font-bold text-stone-800" x-text="seconds">00</span>
+                    <span class="text-[9px] sm:text-[10px] text-stone-600 font-medium">Sec</span>
                 </div>
             </div>
         </section>
 
         <!-- Event Details -->
-        <section class="p-8 text-center relative">
-            <div class="absolute bottom-4 left-6 text-xl opacity-40">🎈</div>
+        <section class="p-6 sm:p-8 text-center relative">
+            <div class="absolute bottom-4 left-4 text-lg opacity-40">🎈</div>
             
-            <div class="mb-6">
-                <h4 class="font-fun text-xl text-[#FF70A6] mb-1">📅 Date & Time</h4>
-                <p class="text-sm text-stone-700 font-semibold">Saturday, July 25, 2026</p>
-                <p class="text-xs text-stone-500 mt-0.5">10:00 AM - 10:00 PM</p>
+            <div class="mb-5">
+                <h4 class="font-fun text-lg sm:text-xl text-[#FF70A6] mb-1">📅 Date & Time</h4>
+                <p class="text-xs sm:text-sm text-stone-700 font-semibold">Saturday, July 25, 2026</p>
+                <p class="text-[11px] sm:text-xs text-stone-500 mt-0.5">10:00 AM - 10:00 PM</p>
             </div>
 
-            <div class="mb-8">
-                <h4 class="font-fun text-xl text-[#FF70A6] mb-1">📍 Location</h4>
-                <p class="text-sm text-stone-700 font-semibold px-4">
+            <div class="mb-6">
+                <h4 class="font-fun text-lg sm:text-xl text-[#FF70A6] mb-1">📍 Location</h4>
+                <p class="text-xs sm:text-sm text-stone-700 font-semibold px-2">
                     Pastel Street No. 12, Main City Area
                 </p>
             </div>
 
             <!-- Maps Button -->
             <a href="https://maps.google.com" target="_blank" 
-               class="inline-flex items-center gap-2 bg-[#9BF6FF] hover:bg-[#7AEFFF] text-stone-800 font-bold text-xs px-6 py-3 rounded-full shadow-md transition-all duration-300">
+               class="inline-flex items-center gap-2 bg-[#9BF6FF] hover:bg-[#7AEFFF] text-stone-800 font-bold text-[11px] sm:text-xs px-5 py-2.5 rounded-full shadow-md transition-all duration-300 cursor-pointer">
                 📍 Open Google Maps
             </a>
         </section>
 
         <!-- RSVP Form Section -->
-        <section class="p-8 bg-[#FFF5F5] border-t-2 border-[#FFC6FF]" x-data="{ rsvpSent: false, name: '', attendance: 'yes' }">
-            <div class="text-center mb-6">
-                <h4 class="font-fun text-2xl text-[#5C4B69] mb-1">Are You Coming?</h4>
-                <p class="text-xs text-stone-500">Please let me know if you can make it!</p>
+        <section class="p-6 sm:p-8 bg-[#FFF5F5] border-t-2 border-[#FFC6FF]" x-data="{ rsvpSent: false, name: '', attendance: 'yes' }">
+            <div class="text-center mb-5">
+                <h4 class="font-fun text-xl sm:text-2xl text-[#5C4B69] mb-1">Are You Coming?</h4>
+                <p class="text-[11px] sm:text-xs text-stone-500">Please let me know if you can make it!</p>
             </div>
 
             <!-- Input Form -->
             <template x-if="!rsvpSent">
-                <form @submit.prevent="rsvpSent = true" class="space-y-4">
+                <form @submit.prevent="rsvpSent = true" class="space-y-3.5">
                     <div>
-                        <label class="block text-xs font-bold text-stone-500 uppercase tracking-wider mb-1">Your Name</label>
+                        <label class="block text-[10px] sm:text-xs font-bold text-stone-500 uppercase tracking-wider mb-1">Your Name</label>
                         <input type="text" x-model="name" required placeholder="Type your name" 
-                               class="w-full bg-white border-2 border-[#FFC6FF] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#FF70A6]">
+                               class="w-full bg-white border-2 border-[#FFC6FF] rounded-xl px-4 py-2 sm:py-2.5 text-xs sm:text-sm focus:outline-none focus:border-[#FF70A6]">
                     </div>
 
                     <div>
-                        <label class="block text-xs font-bold text-stone-500 uppercase tracking-wider mb-1">Your Answer</label>
+                        <label class="block text-[10px] sm:text-xs font-bold text-stone-500 uppercase tracking-wider mb-1">Your Answer</label>
                         <select x-model="attendance" 
-                                class="w-full bg-white border-2 border-[#FFC6FF] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#FF70A6]">
+                                class="w-full bg-white border-2 border-[#FFC6FF] rounded-xl px-4 py-2 sm:py-2.5 text-xs sm:text-sm focus:outline-none focus:border-[#FF70A6]">
                             <option value="yes">Yes, I will come! </option>
                             <option value="no">Sorry, I can't come </option>
                         </select>
                     </div>
 
                     <button type="submit" 
-                            class="w-full bg-[#FF70A6] hover:bg-[#ff5593] text-white text-xs font-bold tracking-wider uppercase py-3.5 rounded-xl shadow-md transition-all duration-300 cursor-pointer">
+                            class="w-full bg-[#FF70A6] hover:bg-[#ff5593] text-white text-xs font-bold tracking-wider uppercase py-3 rounded-xl shadow-md transition-all duration-300 cursor-pointer mt-2">
                         Send Response ➔
                     </button>
                 </form>
@@ -193,21 +202,21 @@
 
             <!-- Success Message -->
             <template x-if="rsvpSent">
-                <div class="text-center py-6 px-4 bg-white rounded-2xl border-2 border-[#FFC6FF] shadow-sm" x-transition>
-                    <span class="text-3xl block mb-2">🎉</span>
-                    <h5 class="font-fun text-xl text-[#5C4B69]">Thank You, <span x-text="name"></span>!</h5>
-                    <p class="text-xs text-stone-600 mt-2 font-medium" x-text="attendance === 'yes' ? 'Awesome! See you at the cafe!' : 'Thank you for telling me.'"></p>
+                <div class="text-center py-5 px-3 bg-white rounded-2xl border-2 border-[#FFC6FF] shadow-sm" x-transition>
+                    <span class="text-2xl block mb-1">🎉</span>
+                    <h5 class="font-fun text-lg text-[#5C4B69]">Thank You, <span x-text="name"></span>!</h5>
+                    <p class="text-[11px] sm:text-xs text-stone-600 mt-2 font-medium" x-text="attendance === 'yes' ? 'Awesome! See you at the cafe!' : 'Thank you for telling me.'"></p>
                 </div>
             </template>
         </section>
 
         <!-- Signature Penutup -->
         <div class="text-center py-3 bg-[#F0E3FF]/30 border-t border-dashed border-[#FFC6FF]">
-            <p class="text-xs font-medium text-purple-600">With love, <span class="font-bold">Azka Fatima Zahra</span> (Owner)</p>
+            <p class="text-[11px] sm:text-xs font-medium text-purple-600">With love, <span class="font-bold">Azka Fatima Zahra</span> (Owner)</p>
         </div>
 
         <!-- Footer -->
-        <footer class="p-4 text-center text-[10px] text-stone-400 font-bold tracking-widest uppercase bg-white">
+        <footer class="p-4 text-center text-[9px] sm:text-[10px] text-stone-400 font-bold tracking-widest uppercase bg-white">
             © 2026 The Pastel Cafe • All Rights Reserved
         </footer>
     </main>
